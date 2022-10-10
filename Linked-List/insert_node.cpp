@@ -60,6 +60,25 @@ Node* insertNode(Node *head,int i,int data){
 	return head;
 }
 
+//Function to insert Node recursively
+Node* insertNode(Node *head, int i, int data) {
+	// Write your code here
+    //base case
+    if(head==NULL){
+        return head;
+    }
+    //small calculation
+    if(i==0){
+        Node *newNode = new Node(data);
+        newNode->next = head;
+        head = newNode;
+        return head;
+    }
+    //recursion call
+    head->next = insertNode(head->next,i-1,data);
+    return head;
+}
+
 void print(Node *head) {
 	while(head != NULL) {
 		cout << head -> data << " ";
