@@ -66,6 +66,25 @@ Node *deleteNode(Node *head, int pos)
     return head;
 }
 
+//function to delelte node recursively
+Node *deleteNodeRec(Node *head, int pos) {
+	//Write your code here
+    Node *temp = head;
+    //Base Case
+    if(head==NULL){
+        return head;
+    }
+    //small calculation
+    if(pos == 0){
+       head = temp->next;
+       return head;
+        
+    }
+    //recursive call
+    head->next = deleteNodeRec(head->next,pos-1);
+    return head;
+}
+
 void print(Node *head)
 {
     Node *temp = head;
